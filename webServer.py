@@ -1,24 +1,26 @@
 #import socket module
 from socket import *
+# import socket
 import sys # In order to terminate the program
 
 serverSocket = socket(AF_INET, SOCK_STREAM)
 #Prepare a sever socket
 #Fill in start
+# dest = socket.gethostbyname(host)
 port = 10132
 serverSocket.bind((gethostname(), port))
 serverSocket.listen(1)
 # HOST, PORT = '', 8888
 
-# listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-# listen_socket.bind((HOST, PORT))
-# listen_socket.listen(1)
-#Fill in end
+# serverSocket = serverSocket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# serverSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+# serverSocket.bind((HOST, PORT))
+# serverSocket.listen(1)
+# Fill in end
 while True:
     #Establish the connection
     print('Ready to serve...')
-    connectionSocket, addr = serverSocket.accept()# listen_socket.accept()          
+    connectionSocket, addr = serverSocket.accept()# serverSocket.accept()          
     try:
         connectionSocket.send("HTTP/1.1 200 OK\r\n\r\n") # ok message
         message = connectionSocket.recv(1024)   #Fill in start          #Fill in end               
